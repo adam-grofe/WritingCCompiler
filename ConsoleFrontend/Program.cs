@@ -1,4 +1,6 @@
-﻿namespace ConsoleFrontend;
+﻿using System;
+
+namespace ConsoleFrontend;
 
 class Program
 {
