@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ConsoleFrontend.Stages;
+using CompilerBackend;
 
 namespace ConsoleFrontend;
 
-class Program
+sealed class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        StageRunner.Run(args[0], args[1], new Compiler());
     }
 }
