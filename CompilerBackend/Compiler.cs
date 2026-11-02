@@ -1,6 +1,7 @@
 ﻿namespace CompilerBackend;
 
-public class Compiler
+#pragma warning disable CA1515
+public class Compiler: ICompiler
 {
 
     public Compiler()

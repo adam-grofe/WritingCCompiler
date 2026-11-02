@@ -3,7 +3,7 @@
 public interface IToken
 {
     bool IsMatch();
-    int Length();
+    int Length { get; }
 
     string TokenString();
 }

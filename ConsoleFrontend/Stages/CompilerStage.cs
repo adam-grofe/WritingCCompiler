@@ -1,7 +1,7 @@
 ﻿using CompilerBackend;
 
 namespace ConsoleFrontend.Stages;
-public class CompilerStage
+public sealed class CompilerStage
 {
 
     private readonly ICompiler _compiler;

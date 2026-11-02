@@ -2,7 +2,8 @@
 
 namespace ConsoleFrontend.Stages;
 
-public class ReaderStage
+#pragma warning disable CA1515
+public sealed class ReaderStage
 {
     public required string FilePath { get; set; }
 

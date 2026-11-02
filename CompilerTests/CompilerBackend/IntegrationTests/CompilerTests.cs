@@ -19,11 +19,11 @@ namespace CompilerTests.CompilerBackend.IntegrationTests
             var result = compiler.Compile(input);
 
             // Assert
-            Assert.True(result.Contains(".global main"));
-            Assert.True(result.Contains("main:"));
-            Assert.True(result.Contains("movl"));
-            Assert.True(result.Contains("$2, %eax"));
-            Assert.True(result.Contains("ret"));
+            Assert.Contains(result, ".global main");
+            Assert.Contains(result, "main:");
+            Assert.Contains(result, "movl");
+            Assert.Contains(result, "$2, %eax");
+            Assert.Contains(result, "ret");
         }
     }
 }

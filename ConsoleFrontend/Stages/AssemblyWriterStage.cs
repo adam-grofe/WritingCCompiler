@@ -1,7 +1,9 @@
 ﻿using System.IO;
 
 namespace ConsoleFrontend.Stages;
-public class AssemblyWriterStage
+
+#pragma warning disable CA1515
+public sealed class AssemblyWriterStage
 {
     private readonly string _filePath;
 

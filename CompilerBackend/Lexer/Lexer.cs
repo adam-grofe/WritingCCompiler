@@ -14,7 +14,7 @@ static public class Lexer
             sourceCode = sourceCode.TrimStart();
             var token = GetNextToken(sourceCode);
             tokens.Add(token.TokenString());
-            sourceCode = sourceCode.Substring(token.Length()).TrimStart();
+            sourceCode = sourceCode.Substring(token.Length).TrimStart();
         }
         return tokens;
     }
@@ -28,7 +28,7 @@ static public class Lexer
             var token = tokenFactory(sourceCode);
             if (token.IsMatch())
             {
-                if (longestToken == null || token.Length() > longestToken.Length())
+                if (longestToken == null || token.Length > longestToken.Length)
                 {
                     longestToken = token;
                 }
