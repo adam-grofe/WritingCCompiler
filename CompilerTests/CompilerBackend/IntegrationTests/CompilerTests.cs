@@ -9,7 +9,7 @@ namespace CompilerTests.CompilerBackend.IntegrationTests
         public void Compile_ShouldReturnAssembly()
         {
             // Arrange
-            var compiler = new Compiler();
+            var compiler = new AGCompiler();
             var input = 
 @"int main(void) { 
     return 2; 

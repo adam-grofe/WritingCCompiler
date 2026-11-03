@@ -16,10 +16,14 @@ public class LexerTests
     public void ReturnStatement_TokenizesCorrectly(string sourceCode, string[] expectedTokens)
     {
         // Act
-        var tokens = Lexer.Tokenize(sourceCode);
+        var tokens = AGLexer.Tokenize(sourceCode);
 
         // Assert
-        Assert.Equal(expectedTokens, tokens);
+        Assert.Equal(tokens.Count, expectedTokens.Length);
+        for(int i = 0; i < tokens.Count; i++)
+        {
+            Assert.Equal(tokens[i].TokenString(), expectedTokens[i]);
+        }
     }
 
     [Theory]
@@ -29,7 +33,7 @@ public class LexerTests
     public void InvalidToken_ThrowsException(string input)
     {
         // Act & Assert
-        Assert.Throws<System.Exception>(() => Lexer.Tokenize(input));
+        Assert.Throws<System.Exception>(() => AGLexer.Tokenize(input));
     }
 
     [Theory]
@@ -41,8 +45,12 @@ public class LexerTests
     public void MainFunction_TokenizesCorrectly(string sourceCode, string[] expectedTokens)
     {
         // Act
-        var tokens = Lexer.Tokenize(sourceCode);
+        var tokens = AGLexer.Tokenize(sourceCode);
         // Assert
-        Assert.Equal(expectedTokens, tokens);
+        Assert.Equal(tokens.Count, expectedTokens.Length);
+        for(int i = 0; i < tokens.Count; i++)
+        {
+            Assert.Equal(tokens[i].TokenString(), expectedTokens[i]);
+        }
     }
 }

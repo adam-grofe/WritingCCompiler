@@ -1,6 +1,8 @@
 ﻿using CompilerBackend;
 
 namespace ConsoleFrontend.Stages;
+
+#pragma warning disable CA1515
 public sealed class CompilerStage
 {
 

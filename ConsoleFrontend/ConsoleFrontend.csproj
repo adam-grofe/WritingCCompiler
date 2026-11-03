@@ -14,7 +14,7 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <WarningsNotAsErrors></WarningsNotAsErrors>
-    <NoWarn>1701;1702;CA1515;</NoWarn>
+    <NoWarn>1701;1702;</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -22,7 +22,7 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <WarningsNotAsErrors></WarningsNotAsErrors>
-    <NoWarn>1701;1702;CA1515;</NoWarn>
+    <NoWarn>1701;1702;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

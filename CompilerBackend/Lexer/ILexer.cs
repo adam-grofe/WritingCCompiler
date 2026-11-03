@@ -4,5 +4,5 @@ namespace CompilerBackend.Lexer;
 
 public interface ILexer
 {
-    List<string> Tokenize(string sourceCode);
+    IList<string> Tokenize(string sourceCode);
 }

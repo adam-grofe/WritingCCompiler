@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using CompilerBackend.Lexer.Tokens;
 
 namespace CompilerBackend.Lexer;
 
-static public class Lexer
+static public class AGLexer
 {
 
-    static public List<string> Tokenize(string sourceCode)
+    static public IList<IToken> Tokenize(string sourceCode)
     {
-        var tokens = new List<string>();
+        var tokens = new List<IToken>();
         while(!string.IsNullOrEmpty(sourceCode))
         {
             sourceCode = sourceCode.TrimStart();
             var token = GetNextToken(sourceCode);
-            tokens.Add(token.TokenString());
+            tokens.Add(token);
             sourceCode = sourceCode.Substring(token.Length).TrimStart();
         }
         return tokens;
@@ -38,6 +39,6 @@ static public class Lexer
         {
             return longestToken;
         }
-        throw new System.Exception("No matching token found.");
+        throw new InvalidExpressionException("No matching token found.");
     }
 }
