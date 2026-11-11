@@ -1,4 +1,5 @@
 ﻿using CompilerBackend.Lexer;
+using System.Data;
 
 namespace CompilerTests.CompilerBackend.LexerTests;
 
@@ -33,7 +34,7 @@ public class LexerTests
     public void InvalidToken_ThrowsException(string input)
     {
         // Act & Assert
-        Assert.Throws<System.Exception>(() => AGLexer.Tokenize(input));
+        Assert.Throws<InvalidExpressionException>(() => AGLexer.Tokenize(input));
     }
 
     [Theory]
