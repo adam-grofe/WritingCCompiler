@@ -10,6 +10,37 @@ permissions:
   contents: read
 
 jobs:
+  codeql:
+    name: CodeQL / C#
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+          build-mode: manual
+
+      - name: Restore dependencies
+        run: dotnet restore Compiler.slnx
+
+      - name: Build
+        run: dotnet build Compiler.slnx --configuration Release --no-restore
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3
+
   build-test:
     name: ${{ matrix.os }} / ${{ matrix.configuration }}
     runs-on: ${{ matrix.os }}
