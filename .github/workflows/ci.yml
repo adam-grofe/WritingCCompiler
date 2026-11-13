@@ -88,11 +88,11 @@ jobs:
 
       - name: Generate compiler executable (Windows)
         if: matrix.configuration == 'Release' && matrix.os == 'windows-latest'
-        run: dotnet publish ./ConsoleFrontend/ConsoleFrontend.csproj -c Release -r win-x64 --self-contained -p:PublishSingleFile=true -p:PublishReadyToRun=true -o .\compiler
+        run: dotnet publish ./ConsoleFrontend/ConsoleFrontend.csproj -c Release -r win-x64 --self-contained -p:PublishSingleFile=true -p:PublishReadyToRun=true -o ./compiler
 
       - name: Generate compiler executable (Linux)
         if: matrix.configuration == 'Release' && matrix.os == 'ubuntu-latest'
-        run: dotnet publish ./ConsoleFrontend/ConsoleFrontend.csproj -c Release -r linux-x64 --self-contained -p:PublishSingleFile=true -p:PublishReadyToRun=true -o .\compiler
+        run: dotnet publish ./ConsoleFrontend/ConsoleFrontend.csproj -c Release -r linux-x64 --self-contained -p:PublishSingleFile=true -p:PublishReadyToRun=true -o ./compiler
 
       - name: Upload release binaries
         if: matrix.configuration == 'Release'
