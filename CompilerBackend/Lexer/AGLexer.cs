@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using CompilerBackend.Lexer.Tokens;
+using System.Collections.Generic;
 using System.Data;
-using CompilerBackend.Lexer.Tokens;
 
 namespace CompilerBackend.Lexer;
 
@@ -10,7 +10,7 @@ static public class AGLexer
     static public IList<IToken> Tokenize(string sourceCode)
     {
         var tokens = new List<IToken>();
-        while(!string.IsNullOrEmpty(sourceCode))
+        while (!string.IsNullOrEmpty(sourceCode))
         {
             sourceCode = sourceCode.TrimStart();
             var token = GetNextToken(sourceCode);

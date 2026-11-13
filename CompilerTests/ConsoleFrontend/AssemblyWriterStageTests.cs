@@ -1,7 +1,7 @@
-﻿using System;
-using System.IO;
-using CompilerTests.Utils;
+﻿using CompilerTests.Utils;
 using ConsoleFrontend.Stages;
+using System;
+using System.IO;
 
 namespace CompilerTests.ConsoleFrontend;
 

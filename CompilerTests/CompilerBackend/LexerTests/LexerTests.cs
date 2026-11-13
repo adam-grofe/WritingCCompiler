@@ -21,7 +21,7 @@ public class LexerTests
 
         // Assert
         Assert.Equal(tokens.Count, expectedTokens.Length);
-        for(int i = 0; i < tokens.Count; i++)
+        for (int i = 0; i < tokens.Count; i++)
         {
             Assert.Equal(tokens[i].TokenString(), expectedTokens[i]);
         }
@@ -49,7 +49,7 @@ public class LexerTests
         var tokens = AGLexer.Tokenize(sourceCode);
         // Assert
         Assert.Equal(tokens.Count, expectedTokens.Length);
-        for(int i = 0; i < tokens.Count; i++)
+        for (int i = 0; i < tokens.Count; i++)
         {
             Assert.Equal(tokens[i].TokenString(), expectedTokens[i]);
         }
