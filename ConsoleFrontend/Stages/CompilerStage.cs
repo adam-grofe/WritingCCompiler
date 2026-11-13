@@ -7,7 +7,7 @@ public sealed class CompilerStage
 {
 
     private readonly ICompiler _compiler;
-    public CompilerStage( ICompiler compiler )
+    public CompilerStage(ICompiler compiler)
     {
         _compiler = compiler;
     }

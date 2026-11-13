@@ -1,8 +1,9 @@
-﻿using Moq;
+﻿using CompilerBackend;
 using ConsoleFrontend.Stages;
-using CompilerBackend;
+using Moq;
 
 namespace CompilerTests.ConsoleFrontend;
+
 public class CompilerStageTests
 {
 

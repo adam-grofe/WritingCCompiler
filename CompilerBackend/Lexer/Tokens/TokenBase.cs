@@ -1,9 +1,9 @@
-﻿using System.Text.RegularExpressions;
-using System;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace CompilerBackend.Lexer.Tokens;
 
-public class TokenBase: IToken
+public class TokenBase : IToken
 {
     private readonly string _matchedString;
     private readonly Regex _tokenRegex;
