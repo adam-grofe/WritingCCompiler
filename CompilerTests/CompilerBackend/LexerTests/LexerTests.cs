@@ -6,15 +6,15 @@ namespace CompilerTests.CompilerBackend.LexerTests;
 public class LexerTests
 {
     [Theory]
-    [InlineData("return 0;", new string[] { "return", "0", ";" })]
-    [InlineData("return 5;", new string[] { "return", "5", ";" })]
-    [InlineData("return 12;", new string[] { "return", "12", ";" })]
-    [InlineData("return 12 ;", new string[] { "return", "12", ";" })]
-    [InlineData("\nreturn 12;", new string[] { "return", "12", ";" })]
-    [InlineData("\treturn 12;", new string[] { "return", "12", ";" })]
-    [InlineData("return\t12;", new string[] { "return", "12", ";" })]
-    [InlineData("return 12\t;", new string[] { "return", "12", ";" })]
-    public void ReturnStatement_TokenizesCorrectly(string sourceCode, string[] expectedTokens)
+    [InlineData("return 0;", new string[] { "return", "0", ";" }, new int[] { 1, 1, 1 })]
+    [InlineData("return 5;", new string[] { "return", "5", ";" }, new int[] { 1, 1, 1 })]
+    [InlineData("return 12;", new string[] { "return", "12", ";" }, new int[] { 1, 1, 1 })]
+    [InlineData("return 12 ;", new string[] { "return", "12", ";" }, new int[] { 1, 1, 1 })]
+    [InlineData("\nreturn 12;", new string[] { "return", "12", ";" }, new int[] { 2, 2, 2 })]
+    [InlineData("\treturn 12;", new string[] { "return", "12", ";" }, new int[] { 1, 1, 1 })]
+    [InlineData("return\t12;", new string[] { "return", "12", ";" }, new int[] { 1, 1, 1 })]
+    [InlineData("return 12\t;", new string[] { "return", "12", ";" }, new int[] { 1, 1, 1 })]
+    public void ReturnStatement_TokenizesCorrectly(string sourceCode, string[] expectedTokens, int[] expectedLineNumbers)
     {
         // Act
         var tokens = AGLexer.Tokenize(sourceCode);
@@ -24,6 +24,7 @@ public class LexerTests
         for (int i = 0; i < tokens.Count; i++)
         {
             Assert.Equal(tokens[i].TokenString, expectedTokens[i]);
+            Assert.Equal(tokens[i].LineNumber, expectedLineNumbers[i]);
         }
     }
 
@@ -38,12 +39,12 @@ public class LexerTests
     }
 
     [Theory]
-    [InlineData("void main() { return; }", new string[] { "void", "main", "(", ")", "{", "return", ";", "}" })]
-    [InlineData("int main() { return 2; }", new string[] { "int", "main", "(", ")", "{", "return", "2", ";", "}" })]
-    [InlineData("int main(void) { return 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" })]
-    [InlineData("int main( void ) { return 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" })]
-    [InlineData("int main(\tvoid\t) {\n\treturn 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" })]
-    public void MainFunction_TokenizesCorrectly(string sourceCode, string[] expectedTokens)
+    [InlineData("void main() { return; }", new string[] { "void", "main", "(", ")", "{", "return", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 1, 1 })]
+    [InlineData("int main() { return 2; }", new string[] { "int", "main", "(", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 })]
+    [InlineData("int main(void) { return 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 })]
+    [InlineData("int main( void ) { return 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 })]
+    [InlineData("int main(\tvoid\t) {\n\treturn 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 2, 2, 2, 2 })]
+    public void MainFunction_TokenizesCorrectly(string sourceCode, string[] expectedTokens, int[] expectedLineNumbers)
     {
         // Act
         var tokens = AGLexer.Tokenize(sourceCode);
@@ -52,6 +53,7 @@ public class LexerTests
         for (int i = 0; i < tokens.Count; i++)
         {
             Assert.Equal(tokens[i].TokenString, expectedTokens[i]);
+            Assert.Equal(tokens[i].LineNumber, expectedLineNumbers[i]);
         }
     }
 }
