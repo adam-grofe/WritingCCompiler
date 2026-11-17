@@ -22,7 +22,7 @@ static public class AGLexer
         foreach (string line in lines)
         {
             string currentLine = line;
-            while (!string.IsNullOrEmpty(currentLine))
+            while (!string.IsNullOrWhiteSpace(currentLine))
             {
                 currentLine = currentLine.TrimStart();
                 var token = GetNextToken(currentLine, lineNumber);

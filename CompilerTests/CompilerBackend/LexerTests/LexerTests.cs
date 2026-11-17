@@ -46,6 +46,7 @@ public class LexerTests
     [InlineData("int main(\tvoid\t) {\n\treturn 2; }", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 2, 2, 2, 2 })]
     [InlineData("int main(\tvoid\t) {\n\n\treturn 2; \n\n}", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 3, 3, 3, 5 })]
     [InlineData("int main(\tvoid\t) {\r\n\r\n\treturn 2; \r\n\r\n}", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 3, 3, 3, 5 })]
+    [InlineData("int main(\tvoid\t) {\r\n\t\r\n\treturn 2; \r\n\r\n}", new string[] { "int", "main", "(", "void", ")", "{", "return", "2", ";", "}" }, new int[] { 1, 1, 1, 1, 1, 1, 3, 3, 3, 5 })]
     public void MainFunction_TokenizesCorrectly(string sourceCode, string[] expectedTokens, int[] expectedLineNumbers)
     {
         // Act
