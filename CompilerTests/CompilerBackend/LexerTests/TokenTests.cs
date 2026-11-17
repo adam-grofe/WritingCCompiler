@@ -14,11 +14,13 @@ public class TokenTests
     public void ReturnToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new ReturnToken(input);
+        int lineNumber = 1;
+        var token = new ReturnToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -41,11 +43,13 @@ public class TokenTests
     public void ConstantToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new ConstantToken(input);
+        int lineNumber = 1;
+        var token = new ConstantToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -58,11 +62,13 @@ public class TokenTests
     public void IntToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new IntToken(input);
+        int lineNumber = 1;
+        var token = new IntToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -75,11 +81,13 @@ public class TokenTests
     public void VoidToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new VoidToken(input);
+        int lineNumber = 1;
+        var token = new VoidToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -92,11 +100,13 @@ public class TokenTests
     public void OpenParenthesisToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new OpenParenthesisToken(input);
+        int lineNumber = 1;
+        var token = new OpenParenthesisToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -109,11 +119,13 @@ public class TokenTests
     public void CloseParenthesisToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new CloseParenthesisToken(input);
+        int lineNumber = 1;
+        var token = new CloseParenthesisToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -126,11 +138,13 @@ public class TokenTests
     public void CloseBraceToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new CloseBraceToken(input);
+        int lineNumber = 1;
+        var token = new CloseBraceToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -143,11 +157,13 @@ public class TokenTests
     public void OpenBraceToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new OpenBraceToken(input);
+        int lineNumber = 1;
+        var token = new OpenBraceToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
     [Theory]
     [InlineData(";", ";")]
@@ -159,11 +175,13 @@ public class TokenTests
     public void SemicolonToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new SemicolonToken(input);
+        int lineNumber = 1;
+        var token = new SemicolonToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
     [Theory]
@@ -176,11 +194,13 @@ public class TokenTests
     public void IdentifierToken_Matches(string input, string expected)
     {
         // Arrange
-        var token = new IdentifierToken(input);
+        int lineNumber = 1;
+        var token = new IdentifierToken(input, lineNumber);
 
         // Act & Assert
         Assert.True(token.IsMatch());
-        Assert.Equal(expected, token.TokenString());
+        Assert.Equal(expected, token.TokenString);
+        Assert.Equal(lineNumber, token.LineNumber);
     }
 
 }

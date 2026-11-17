@@ -6,8 +6,8 @@ public class ConstantToken : TokenBase
 {
     private static readonly Regex _constantRegex = new Regex(@"^\d+\b");
 
-    public ConstantToken(string input)
-    : base(_constantRegex, input)
+    public ConstantToken(string input, int lineNumber)
+    : base(_constantRegex, input, lineNumber)
     {
     }
 }

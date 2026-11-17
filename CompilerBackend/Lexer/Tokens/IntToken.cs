@@ -6,8 +6,8 @@ public class IntToken : TokenBase
 {
     private static readonly Regex _intRegex = new Regex(@"^int\b");
 
-    public IntToken(string input)
-    : base(_intRegex, input)
+    public IntToken(string input, int lineNumber)
+    : base(_intRegex, input, lineNumber)
     {
     }
 }

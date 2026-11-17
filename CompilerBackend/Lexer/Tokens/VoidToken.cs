@@ -6,8 +6,8 @@ public class VoidToken : TokenBase
 {
     private static readonly Regex _voidRegex = new Regex(@"^void\b");
 
-    public VoidToken(string input)
-    : base(_voidRegex, input)
+    public VoidToken(string input, int lineNumber)
+    : base(_voidRegex, input, lineNumber)
     {
     }
 }

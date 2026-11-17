@@ -4,21 +4,21 @@ namespace CompilerBackend.Lexer.Tokens;
 
 static class SupportedTokensFactory
 {
-    static Func<string, IToken>[] _supportedTokens = new Func<string, IToken>[]
+    static Func<string, int, IToken>[] _supportedTokens = new Func<string, int, IToken>[]
     {
-        input => new IntToken(input),
-        input => new ReturnToken(input),
-        input => new VoidToken(input),
-        input => new ConstantToken(input),
-        input => new SemicolonToken(input),
-        input => new OpenBraceToken(input),
-        input => new CloseBraceToken(input),
-        input => new OpenParenthesisToken(input),
-        input => new CloseParenthesisToken(input),
-        input => new IdentifierToken(input),
+        (input, lineNumber) => new IntToken(input, lineNumber),
+        (input, lineNumber) => new ReturnToken(input, lineNumber),
+        (input, lineNumber) => new VoidToken(input, lineNumber),
+        (input, lineNumber) => new ConstantToken(input, lineNumber),
+        (input, lineNumber) => new SemicolonToken(input, lineNumber),
+        (input, lineNumber) => new OpenBraceToken(input, lineNumber),
+        (input, lineNumber) => new CloseBraceToken(input, lineNumber),
+        (input, lineNumber) => new OpenParenthesisToken(input, lineNumber),
+        (input, lineNumber) => new CloseParenthesisToken(input, lineNumber),
+        (input, lineNumber) => new IdentifierToken(input, lineNumber),
     };
 
-    static public Func<string, IToken>[] GetSupportedTokens()
+    static public Func<string, int, IToken>[] GetSupportedTokens()
     {
         return _supportedTokens;
     }
