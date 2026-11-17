@@ -11,7 +11,7 @@ static public class AGLexer
 
     static public IList<IToken> Tokenize(string sourceCode)
     {
-        if (string.IsNullOrEmpty(sourceCode))
+        if (string.IsNullOrWhiteSpace(sourceCode))
         {
             return new List<IToken>();
         }
