@@ -23,7 +23,7 @@ public class LexerTests
         Assert.Equal(tokens.Count, expectedTokens.Length);
         for (int i = 0; i < tokens.Count; i++)
         {
-            Assert.Equal(tokens[i].TokenString(), expectedTokens[i]);
+            Assert.Equal(tokens[i].TokenString, expectedTokens[i]);
         }
     }
 
@@ -51,7 +51,7 @@ public class LexerTests
         Assert.Equal(tokens.Count, expectedTokens.Length);
         for (int i = 0; i < tokens.Count; i++)
         {
-            Assert.Equal(tokens[i].TokenString(), expectedTokens[i]);
+            Assert.Equal(tokens[i].TokenString, expectedTokens[i]);
         }
     }
 }

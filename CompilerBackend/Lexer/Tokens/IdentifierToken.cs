@@ -6,8 +6,8 @@ public class IdentifierToken : TokenBase
 {
     private static readonly Regex _returnRegex = new Regex(@"^[a-zA-Z_]\w*\b");
 
-    public IdentifierToken(string input)
-    : base(_returnRegex, input)
+    public IdentifierToken(string input, int lineNumber)
+    : base(_returnRegex, input, lineNumber)
     {
     }
 }

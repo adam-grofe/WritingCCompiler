@@ -6,8 +6,8 @@ public class CloseBraceToken : TokenBase
 {
     private static readonly Regex _closedBraceRegex = new Regex(@"^\}");
 
-    public CloseBraceToken(string input)
-    : base(_closedBraceRegex, input)
+    public CloseBraceToken(string input, int lineNumber)
+    : base(_closedBraceRegex, input, lineNumber)
     {
     }
 }
