@@ -53,6 +53,6 @@ static public class AGLexer
         {
             return longestToken;
         }
-        throw new InvalidExpressionException("No matching token found.");
+        throw new InvalidExpressionException($"Failed to assign token (line {lineNumber}) '{sourceCode}'.");
     }
 }
